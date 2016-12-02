@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-faded">
+	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+	<div class="collapse navbar-toggleable-xs" id="navbar-header">
+	  <a class="navbar-brand" routerLink="/">Toolkit</a>
+	  <ul class="nav navbar-nav">
+      <template ngFor let-item [ngForOf]="enlaces" >
+				<template [ngIf]="!item.subenlaces">
+					<li class="nav-item" [class.active]="item.enlace === url_actual">
+						<a class="nav-link" [routerLink]="item.enlace">{{item.titulo}} <span *ngIf="item.enlace === url_actual" class="sr-only"></span></a>
+					</li>
+				</template>	
+				<template [ngIf]="item.subenlaces">	
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.titulo}}</a>
+						<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+							<template ngFor let-subitem [ngForOf]="item.subenlaces" >
+								<a class="dropdown-item" [routerLink]="subitem.enlace">{{subitem.titulo}}</a>
+							</template>	
+						</div>
+					</li>
+				</template>	
+      </template>
+		</ul>
+	  <form class="form-inline float-xs-right">
+		  <input class="form-control" type="text" placeholder="Búsqueda">
+		  <button class="btn btn-outline-success" type="submit">Search</button>
+	  </form>
+	</div>
+</nav> <!-- /navbar -->
