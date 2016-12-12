@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { ChartModule } from 'angular2-highcharts';
 //import {AgGridModule} from "ag-grid-ng2/main";
 
 import { AppComponent } from './app.component';
@@ -52,7 +53,8 @@ import { ResourceDataComponent } from './widgets/cauth/resources/resource-data/r
     FormsModule,
     HttpModule,
     RouterModule,
-    routing
+    routing,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

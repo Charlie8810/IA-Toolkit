@@ -1,34 +1,20 @@
 
         <div class="col-md-12 bhoechie-tab-container">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
-              <div class="list-group">
-                <a href="#" class="list-group-item active text-center">
-                  <h4 class="glyphicon glyphicon-plane"></h4><br/>Listar
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-road"></h4><br/>Detalle
-                </a>
-              </div>
+             <ul class="list-group nav" role="tablist">
+                <li role="presentation" class="list-group-item text-center active">
+                  <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                    <h4 class="glyphicon glyphicon-plane"></h4><br/>Listar</a>
+                </li>
+                <li role="presentation" class="list-group-item text-center">
+                  <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                    <h4 class="glyphicon glyphicon-road"></h4><br/>Detalle</a>
+                </li>
+              </ul>
             </div>
 
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 bhoechie-tab">
-                <!-- flight section -->
-                <div class="bhoechie-tab-content active">
-                    
-                      <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
-                    
-                </div>
-                <!-- train section -->
-                <div class="bhoechie-tab-content">
-                    
-                      <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
-                    
-                </div>
-    
-              
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="home">...1</div>
+              <div role="tabpanel" class="tab-pane" id="profile">...2</div>
             </div>
         </div>
