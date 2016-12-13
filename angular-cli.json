@@ -20,6 +20,8 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/bootstrap-vertical-tabs/bootstrap.vertical-tabs.css",
+        "../node_modules/ag-grid/dist/styles/ag-grid.css",
+        "../node_modules/ag-grid/dist/styles/theme-fresh.css",
 		    "styles.css"
       ],
       "scripts": [

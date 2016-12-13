@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
-//import {AgGridModule} from "ag-grid-ng2/main";
+import { AgGridModule } from "ag-grid-ng2/main";
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './widgets/nav-menu/nav-menu.component';
@@ -52,9 +53,15 @@ import { ResourceDataComponent } from './widgets/cauth/resources/resource-data/r
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     RouterModule,
     routing,
-    ChartModule
+    ChartModule,
+    AgGridModule.withComponents([
+          ListResourcesComponent,
+          ListUsergroupsComponent,
+          ListUsersComponent
+      ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

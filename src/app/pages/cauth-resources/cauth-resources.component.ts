@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Directive } from '@angular/core';
 
-
 @Component({
   selector: 'app-cauth-resources',
   templateUrl: './cauth-resources.component.html',
@@ -9,7 +8,7 @@ import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Directive } fr
 })
 export class CauthResourcesComponent implements OnInit, AfterViewInit {
 
- constructor(private elementRef : ElementRef) {}
+ constructor() {}
 
   ngOnInit() {
     

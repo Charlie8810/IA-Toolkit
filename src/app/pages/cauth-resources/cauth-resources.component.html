@@ -1,6 +1,6 @@
 
         <div class="col-md-12 bhoechie-tab-container">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 bhoechie-tab-menu">
              <ul class="list-group nav" role="tablist">
                 <li role="presentation" class="list-group-item text-center active">
                   <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
@@ -13,8 +13,12 @@
               </ul>
             </div>
 
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="home">...1</div>
-              <div role="tabpanel" class="tab-pane" id="profile">...2</div>
+            <div class="tab-content col-lg-11 col-md-11 col-sm-11 col-xs-11">
+              <div role="tabpanel" class="tab-pane active" id="home">
+                  <list-resources></list-resources>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="profile">
+                  <resource-data></resource-data>
+              </div>
             </div>
         </div>
