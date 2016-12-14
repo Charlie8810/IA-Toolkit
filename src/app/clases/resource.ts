@@ -6,5 +6,6 @@ export class Resource {
     public Nombre:string;
     public Url:string;
     public Icono:string;
+    public Hijos: Resource[];
     
 }

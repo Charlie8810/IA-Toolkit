@@ -12,18 +12,23 @@ import 'rxjs/add/operator/toPromise';
   providers: [ResourcesService]
 })
 export class ListResourcesComponent implements OnInit {
-
-  public gridOptions:GridOptions;
+    
+                 
+  public gridOptions: GridOptions;
+  public resources: Resource[];
+  public mensajeError:any;
 
   constructor(private resourceService: ResourcesService) {
+        this.gridOptions = {
+                    columnDefs: this.createColumnDefs(),
+                    enableColResize: true,
+                    enableSorting: true,
+                    enableFilter: true
+                }
 
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
-        this.gridOptions.enableFilter = true;
   }
 
-    private createColumnDefs() {
+    createColumnDefs() {
         return [
             {headerName: "Nombre", field: "Nombre", width: 200},
             {headerName: "Tipo",field: "Tipo", width: 100},
@@ -32,13 +37,14 @@ export class ListResourcesComponent implements OnInit {
         ];
     }
 
-    private createRowData() {
-        let ret:Resource[]=[];
-        this.resourceService.getResources().then(res=>ret=res);
-        return ret;
-    }
-
     ngOnInit() {
+
+        this.resourceService.getResources()
+                .subscribe( (rslt:Resource[])=>{
+                                this.resources = rslt;
+                            }, 
+                            error=>this.mensajeError=<any>error);
+
     }
 
 
