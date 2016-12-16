@@ -25,4 +25,4 @@ const routes: Routes = [
     { path: 'procesos', component: ProcesosComponent},
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes,  { useHash: true });
