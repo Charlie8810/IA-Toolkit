@@ -1,6 +1,6 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Group }       from '../clases/group'
+import { Group }       from '../clases/group';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
 

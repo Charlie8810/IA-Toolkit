@@ -3,11 +3,11 @@
 <form>
   <div class="form-group">
     <label for="exampleInputRut1">Rut</label>
-    <input type="text" class="form-control" id="exampleInputRut1" placeholder="Rut" [(ngModel)]="usuario.IdUsuario">
+    <input type="text" class="form-control" #exampleInputRut1 name="IdUsuario" placeholder="Rut" [(ngModel)]="usuario.IdUsuario" (blur)="formateaRut()">
   </div>
   <div class="form-group">
     <label for="exampleInputNombre1">Nombre</label>
-    <input type="text" class="form-control" id="exampleInputNombre1" placeholder="Nombre" [(ngModel)]="usuario.Nombre">
+    <input type="text" class="form-control" #exampleInputNombre1 name="Nombre" placeholder="Nombre" [(ngModel)]="usuario.Nombre">
   </div>
 
   
