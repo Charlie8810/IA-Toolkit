@@ -5,6 +5,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
 import { AgGridModule } from "ag-grid-ng2/main";
+import {DataTableModule} from "angular2-datatable";
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { ListUsergroupsComponent } from './widgets/cauth/usergroups/list-usergro
 import { ListResourcesComponent } from './widgets/cauth/resources/list-resources/list-resources.component';
 import { AddResourceComponent } from './widgets/cauth/resources/add-resource/add-resource.component';
 import { ResourceDataComponent } from './widgets/cauth/resources/resource-data/resource-data.component';
+
 
 
 
@@ -62,6 +64,7 @@ import { ResourceDataComponent } from './widgets/cauth/resources/resource-data/r
           ListUsergroupsComponent,
           ListUsersComponent
       ]),
+    DataTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

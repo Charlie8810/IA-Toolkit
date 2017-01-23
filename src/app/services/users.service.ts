@@ -10,13 +10,16 @@ import { UsuarioBase }       from '../clases/usuario-base';
 export class UsersService {
 
 
-  private headers = new Headers({ 'Accept': 'application/json, text/javascript, */*; q=0.01',
-                                  'content-type':'application/json'});
-  private options = new RequestOptions({ headers: this.headers }); 
+  private headers = new Headers();
+  //private options = new RequestOptions({ headers: this.headers }); 
   private serviceUrlBase = 'http://localhost:9090/api/manta/';
   private serviceName:string;
 
-  constructor (private http: Http) {}
+  constructor (private http: Http) 
+  {
+      this.headers.append('Accept','application/json, text/javascript, */*; q=0.01');
+      this.headers.append('content-type','application/json');
+  }
   
 
   ListUsers(): Observable<User[]> 
@@ -28,13 +31,16 @@ export class UsersService {
   }
 
 
-  InsertUser(b:UsuarioBase): void
+  InsertUser(b:UsuarioBase): Observable<User> 
   {
-    //console.log(JSON.stringify(b));
-    this.serviceName = "add-user";
-    this.http.post(this.serviceUrlBase + this.serviceName, JSON.stringify(b),{headers: this.headers});
-
-    console.log("pasamos / " + this.serviceName);
+      this.serviceName = "add-user";
+      console.log(this.headers);
+      return this.http.post(this.serviceUrlBase + this.serviceName, JSON.stringify(b),{headers: this.headers})
+        .map((res:Response) =>{
+            console.log(res);
+            b.usuario;
+        })
+        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
 

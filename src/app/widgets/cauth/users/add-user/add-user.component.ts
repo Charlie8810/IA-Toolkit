@@ -45,8 +45,12 @@ export class AddUserComponent implements OnInit
         this.usuario.ClaveAcceso = this.generarContrasenia();
         this.usuario.Estado = "CAMBIAR_CLAVE";
         let b:UsuarioBase = new UsuarioBase(this.usuario, this.gruposSelected);  
-        //console.log(JSON.stringify(b)); 
-        this.usersService.InsertUser(b);
+        this.usersService.InsertUser(b)
+          .subscribe( 
+            (rslt:User)=>{
+                this.usuario = rslt;
+            }, 
+            error=>this.mensajeError=<any>error); 
     }
     else
     {
@@ -64,7 +68,8 @@ export class AddUserComponent implements OnInit
       return /^[0-9]+-[0-9kK]{1}$/.test(elRut)
   }
 
-  private formateaRut():void{
+  private formateaRut():void
+  {
       this.usuario.IdUsuario = this.usuario.IdUsuario.replace(/^(\d{7,8})(\w{1})$/, '$1-$2');   
   }
 

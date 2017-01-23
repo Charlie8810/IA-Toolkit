@@ -1,6 +1,31 @@
 <h4 style="margin-bottom:5px">Lista de usuarios</h4>
 <br/>
-<ag-grid-ng2 #agGrid style="width: 100%; height: 300px;" class="ag-fresh"
-              [gridOptions]="gridOptions"
-              [rowData]="usuarios">
-</ag-grid-ng2>
+<table class="table table-striped" [mfData]="usuarios" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th style="width: 20%">
+            <mfDefaultSorter by="IdUsuario">Rut</mfDefaultSorter>
+        </th>
+        <th style="width: 50%">
+            <mfDefaultSorter by="Nombres">Nombre</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="Estado">Estado</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.IdUsuario}}</td>
+        <td>{{item.Nombres}}</td>
+        <td>{{item.Estado | uppercase}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
