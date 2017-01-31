@@ -1,3 +1,12 @@
-<p>
-  cauth-usergroups works!
-</p>
+<ngb-tabset #t="ngbTabset" (tabChange)="beforeChange($event)">
+  <ngb-tab title="Listado" id="Lista">
+    <template ngbTabContent>
+        <list-usergroups (onGrupoSeleccionado)="onGrupoSeleccionado($event);" ></list-usergroups>
+    </template>
+  </ngb-tab>
+  <ngb-tab title="Detalle / Nuevo" id="Detalle">
+    <template ngbTabContent>
+        <add-usergroup [grupobase]="grupo"></add-usergroup>
+    </template>
+  </ngb-tab>
+</ngb-tabset>

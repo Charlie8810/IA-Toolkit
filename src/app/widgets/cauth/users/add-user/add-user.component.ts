@@ -1,9 +1,6 @@
-import { Component, OnInit }  from '@angular/core';
-import { GroupsService }      from '../../../../services/groups.service';
-import { UsersService }      from '../../../../services/users.service';
-import { Group }              from '../../../../clases/group';
-import { User }               from '../../../../clases/user';
-import { UsuarioBase }               from '../../../../clases/usuario-base';
+import { Component, OnInit, Input }  from '@angular/core';
+import { GroupsService, UsersService }      from '../../../../services/';
+import { Group, User, UsuarioBase }              from '../../../../clases';
 import { Md5 }                from 'ts-md5/dist/md5';
 
 
@@ -15,6 +12,7 @@ import { Md5 }                from 'ts-md5/dist/md5';
 })
 export class AddUserComponent implements OnInit 
 {
+  @Input() user;
 
   public grupos:Group[];
   public mensajeError:any;
@@ -27,6 +25,15 @@ export class AddUserComponent implements OnInit
 
   ngOnInit() 
   {
+
+    //console.log(this.user);
+    /* Carga de usuario cuando viene de la grilla */
+    if(typeof this.user !== 'undefined')
+    {
+        this.usuario=this.user ;
+    }
+    
+
     /* Carga de grupos  */
     this.groupService.listGroups().subscribe(
       (resultado:Group[])=>{

@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: 'authman/resources', component: CauthResourcesComponent},
     { path: 'authman/resources/:rid', component: CauthResourcesComponent},
     // Internal process mantainers 
-    { path: 'procesos', component: ProcesosComponent},
+    { path: 'procesos/campanas', component: ProcesosComponent},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes,  { useHash: true });

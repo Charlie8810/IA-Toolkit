@@ -1,3 +1,28 @@
-<p>
-  list-usergroups works!
-</p>
+<br/>
+<h3 style="margin-bottom:5px">Lista de Grupos </h3>
+<br/>
+<table class="table table-striped" [mfData]="grupos" #mf="mfDataTable" [mfRowsOnPage]="10">
+    <thead>
+    <tr>
+        <th style="width: 30%">
+            <mfDefaultSorter by="NombreSucursal">Id Grupo</mfDefaultSorter>
+        </th>
+        <th style="width: 70%">
+            <mfDefaultSorter by="NombreSucursal">Nombre Grupo</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.grupo.IdGrupo}}</td>
+        <td><a href="javascript:void(0);" (click)="cpDetalleGrupo(item)">{{item.grupo.Nombre}}</a></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

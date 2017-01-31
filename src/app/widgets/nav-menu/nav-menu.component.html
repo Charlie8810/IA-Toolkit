@@ -1,36 +1,33 @@
-<nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" routerLink="/">Toolkit</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<template ngFor let-item [ngForOf]="enlaces" >
-									<template [ngIf]="!item.subenlaces">
-										<li [class.active]="item.enlace === url_actual">
-											<a [routerLink]="item.enlace">{{item.titulo}} <span *ngIf="item.enlace === url_actual" class="sr-only"></span></a>
-										</li>
-									</template>	
-									<template [ngIf]="item.subenlaces">	
-										<li class="dropdown">
-											<a class="dropdown-toggle" href="#" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.titulo}} <span class="caret"></span></a>
-											<ul class="dropdown-menu">
-												<template ngFor let-subitem [ngForOf]="item.subenlaces" >
-													<li><a [routerLink]="subitem.enlace">{{subitem.titulo}}</a></li>
-												</template>
-											</ul>
-										</li>
-									</template>	
+<nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+				<a class="navbar-brand" routerLink="/">Toolkit IA</a>
+				<div class="collapse navbar-collapse" id="containerNavbar">
+          <ul class="navbar-nav mr-auto">
+            <template ngFor let-item [ngForOf]="enlaces" >
+						<template [ngIf]="!item.subenlaces">
+						<li class="nav-item" [class.active]="item.enlace === url_actual">
+							<a class="nav-link" [routerLink]="item.enlace">{{item.titulo}} <span *ngIf="item.enlace === url_actual" class="sr-only">(current)</span></a>
+            </li>
+						</template>
+						<template [ngIf]="item.subenlaces">	
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.titulo}}</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+								<template ngFor let-subitem [ngForOf]="item.subenlaces" >
+                <a class="dropdown-item" [routerLink]="subitem.enlace">{{subitem.titulo}}</a>
 								</template>
-							</ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+              </div>
+            </li>
+						</template>	
+						</template>
+          </ul>
+          
+        </div>
+
+	
+       
       </nav>
 
 

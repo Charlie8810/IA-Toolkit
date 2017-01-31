@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { User }       from '../clases/user';
-import { UsuarioBase }       from '../clases/usuario-base';
+import { User, UsuarioBase }       from '../clases';
+import { environment }     from '../../environments/environment';
 
 
 @Injectable()
@@ -12,13 +12,14 @@ export class UsersService {
 
   private headers = new Headers();
   //private options = new RequestOptions({ headers: this.headers }); 
-  private serviceUrlBase = 'http://localhost:9090/api/manta/';
+  private serviceUrlBase:string;
   private serviceName:string;
 
   constructor (private http: Http) 
   {
       this.headers.append('Accept','application/json, text/javascript, */*; q=0.01');
       this.headers.append('content-type','application/json');
+      this.serviceUrlBase = environment.serviceUrlBase;
   }
   
 

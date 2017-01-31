@@ -5,7 +5,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
 import { AgGridModule } from "ag-grid-ng2/main";
-import {DataTableModule} from "angular2-datatable";
+import { DataTableModule } from "angular2-datatable";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 
 import { AppComponent } from './app.component';
@@ -64,7 +65,8 @@ import { ResourceDataComponent } from './widgets/cauth/resources/resource-data/r
           ListUsergroupsComponent,
           ListUsersComponent
       ]),
-    DataTableModule
+    DataTableModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

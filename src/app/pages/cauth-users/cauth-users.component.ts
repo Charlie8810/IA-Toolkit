@@ -1,4 +1,6 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Directive } from '@angular/core';
+import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { User }  from '../../clases/';
 
 @Component({
   selector: 'app-cauth-users',
@@ -6,6 +8,9 @@ import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Directive } fr
   styleUrls: ['./cauth-users.component.css']
 })
 export class CauthUsersComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('t') t; 
+  public usuario:User;
 
   constructor() {}
 
@@ -16,5 +21,16 @@ export class CauthUsersComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
 
   }
+
+  onRutSeleccionado(usuario: User) {
+    this.usuario = usuario;
+    this.t.select('Detalle');
+    //console.log(this.t);
+    
+  }
+
+  public beforeChange($event: NgbTabChangeEvent) {
+      //console.log($event);    
+  };
 
 }

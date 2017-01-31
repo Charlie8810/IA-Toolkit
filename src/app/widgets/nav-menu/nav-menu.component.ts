@@ -19,18 +19,25 @@ export class NavMenuComponent implements OnInit {
           enlace:'/authman/users'
         },
         {
-          titulo:'Mantenedor Grupos de Usuarios',
+          titulo:'Mantenedor Grupos',
           enlace:'/authman/usergroups'
         },
         {
           titulo:'Mantenedor Recursos',
           enlace:'/authman/resources'
         },
+        
       ]
     },
     {
       titulo:'Procesos',
-      enlace:'/procesos/'
+      enlace:'#',
+      subenlaces: [
+        {
+          titulo: 'Campañas',
+          enlace:'/procesos/campanas'
+        }
+      ] 
     },
     
   ];

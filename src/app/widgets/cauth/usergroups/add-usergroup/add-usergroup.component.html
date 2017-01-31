@@ -1,3 +1,32 @@
-<p>
-  add-usergroup works!
-</p>
+<div style="margin-top: 10px; margin-bottom: 10px;">
+<h4>Grupo</h4>
+<form>
+  <div class="form-group">
+    <label for="exampleInputNombre1">Nombre</label>
+    <input type="text" class="form-control" #exampleInputNombre1 name="Nombres" placeholder="Nombre" [(ngModel)]="grupobas.grupo.Nombre" >
+  </div>
+
+<hr/>
+<h4>Asociar oficinas</h4>
+<div class="row">
+<div class="col col-md-4">
+
+<template ngFor let-off [ngForOf]="oficinas">
+<div class="checkbox">
+  <label>
+    <input type="checkbox" [attr.checked]="cpCheckear(off) ? true : null" value="{{off.CodSucursal}}" (change)="cpSeleccionOficina($event.target)">
+    {{off.NombreSucursal}}
+  </label>
+</div>
+</template>
+  </div>
+</div>
+
+
+  <hr/>
+  <button type="button" class="btn btn-default" (click)="cpGuardar()">Guardar</button>
+</form>
+
+
+
+</div>
